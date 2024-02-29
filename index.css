@@ -1,0 +1,26 @@
+#header-adjustments
+{
+  padding-bottom: 3%;
+}
+
+main
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin: 100px auto;
+  padding-bottom: 8%;
+}
+
+section p
+{
+  font-weight: 100;
+  inline-size: 10cm;
+}
+
+#name-under-image
+{
+  font-weight: normal;
+  font-size: 0.8em;
+}

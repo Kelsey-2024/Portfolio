@@ -15,6 +15,7 @@ main
   margin-top: 5%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
 }
@@ -23,4 +24,14 @@ main
 {
   margin: 25px;
   inline-size: 10cm;
+}
+
+footer
+{
+  padding-top: 2%;
+}
+
+.footer-row
+{
+  margin: 1%;
 }

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kelsey's Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <style>
+            html {
+                font-size: 16px;
+            }
+
+            @media (max-width: 768px) {
+                .hero h1 {
+                    font-size: 2.2rem;
+                }
+                .hero p {
+                    font-size: 1rem;
+                }
+                .btn-primary {
+                    font-size: 0.9rem;
+                    padding: 0.5em 1em;
+                }
+                nav a {
+                    font-size: 0.9rem;
+                }
+                .modal-content {
+                    font-size: 0.9rem;
+                    padding: 1.5rem;
+                }
+            }
+            
+            :root {
+                --bg: #F8FFF4;
+                --text: #223322;
+                --accent: #4C7A3E;
+                --highlight: #A1CDA8;
+                --cta: #6B8E23;
+                --nav-text: #223322;
+            }
+
+            [data-theme="dark"] {
+                --bg: #012e40;
+                --text: #87a59e;
+                --accent: #64b6ac;
+                --highlight: #037171;
+                --cta: #38a3a5;
+                --nav-text: #176a90;
+            }
+
+            body {
+                margin: 0;
+                font-family: 'Nunito Sans', sans-serif;
+                background-color: var(--bg);
+                color: var(--text);
+                line-height: 1.6;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 2rem;
+                background-color: white;
+                border-bottom: 1px solid var(--highlight);
+            }
+            nav a {
+                margin-left: 1rem;
+                text-decoration: none;
+                color: var(--nav-text);
+                font-weight: 700;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            nav a:hover {
+                transform: scale(1.05);
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 3rem;
+                color: var(--accent);
+                animation: float 4s ease-in-out infinite;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+                max-width: 600px;
+                margin: 1rem auto;
+            }
+
+            .btn-primary {
+                background-color: var(--cta);
+                color: white;
+                padding: 0.75em 1.5em;
+                border-radius: 6px;
+                text-decoration: none;
+                display: inline-block;
+                margin-top: 1rem;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                transform: scale(1.05);
+            }
+
+            .theme-toggle {
+                background: none;
+                border: 2px solid var(--accent);
+                padding: 0.5em 1em;
+                border-radius: 5px;
+                cursor: pointer;
+                color: var(--nav-text);
+                font-weight: bold;
+                transition: transform 0.3s ease;
+            }
+
+            .theme-toggle:hover {
+                transform: scale(1.05);
+            }
+
+            .theme-toggle i {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 4rem 2rem;
+            }
+
+            .projects {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem
+            }
+
+            .project {
+                border: 1px solid var(--highlight);
+                border-radius: 8px;
+                padding: 1rem;
+                background-color: white;
+                cursor: pointer;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .project:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.7);
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+
+            .modal-content {
+                background: var(--bg);
+                color: var(--text);
+                padding: 2rem;
+                border-radius: 10px;
+                max-width: 500px;
+                width: 90%;
+                position: relative;
+                opacity: 0;
+                transform: scale(0.95);
+                animation: fadeInZoom 0.4s forwards;
+            }
+
+
+            @keyframes fadeInZoom {
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes float {
+                0% {transform: translateY(0); }
+                50% {transform: translateY(-10px); }
+                100% {transform: translateY(0); }
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--text);
+                cursor: pointer;
+            }
+
+            footer {
+                text-align: center;
+                padding: 2rem;
+                font-size: 1rem;
+                color: #223322;
+                background-color: #F8FFF4;
+                border-top: 1px solid #A1CDA8;
+            }
+
+            .contact-icons {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-bottom: 1rem;
+            }
+
+            .contact-icons a,
+            .contact-icons button {
+                color: var(--text);
+                margin: 0 1rem;
+                font-size: 1.5rem;
+                transition: color 0.3s ease;
+                background: none;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .contact-icons a:hover,
+            .contact-icons button:hover {
+                color: #4C7A3E;
+            }
+
+            .tooltip {
+                position: relative;
+            }
+
+            .tooltip::after {
+                content: attr(data-tooltip);
+                position: absolute;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #223322;
+                color: white;
+                padding: 4px 8px;
+                font-size: 0.75rem;
+                border-radius: 4px;
+                white-space: nowrap;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            .tooltip:hover::after {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">Kelsey Cordero</div>
+            <nav>
+                <a onclick="scrollToSection('work')">Work</a>
+                <a onclick="scrollToSection('about')">About</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </nav>
+        </header>
+        <section class="hero">
+            <h1>Creating thoughtful digital experiences</h1>
+            <p>Inspired by nature and storytelling, I build websites that feel magical yet grounded.</p>
+            <a class="btn-primary" href="Kelsey Cordero_Resume.pdf" download>Download My Resume</a>
+        </section>
+
+        <section class="section" id="work">
+            <h2>My Projects</h2>
+            <div class="projects">
+                <div class="project" onclick="openModal('modal1')">
+                    <h3>Project One</h3>
+                    <p>Enter short description here</p>
+                </div>
+                <div class="project" onclick="openModal('modal2')">
+                    <h3>Project Two</h3>
+                    <p>Enter short description</p>
+                </div>
+                <!-- Add more project cards here -->
+            </div>
+        </section>
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my website, my name is Kelsey and I'm a fullstack developer. I ...</p>
+            <ul>
+                <li>snowboard, skateboard, and knit,</li>
+                <li>have two cats that will do anything for treats,</li>
+                <li>create apps and website wireframes,</li>
+                <li>do backend development!</li>
+            </ul>
+            <h4>Education</h4>
+                <p>Bachelor of Science in Computer Science</p>
+                <p>New Jersey Institute of Technology | Expected Graduation Date 2028</p>
+            
+            <h4>Language Proficiency</h4>
+                <p>Fluent in English</p>
+                <p>Intermediate in Spanish</p>
+        </section>
+
+        <div id="modal1" class="modal" onclick="closeModal(event, 'modal1')">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal(event, 'modal1')">&times;</button>
+                <h3>Kitch App</h3>
+                <p>This is an extended view of blah blah.</p>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal" onclick="closeModal(event, 'modal2')">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal(event, 'moodal2')">&times;</button>
+                <h3>Project Two Details</h3>
+                <p>Details regarding the project will go here.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="contact-icons">
+                <span class="tooltip" data-tooltip="Click to open email app or right-click to copy address">
+                    <a href="mailto:corderokelsey07@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </span>
+                <span class="tooltip" id="copy-btn" data-tooltip="Copy Email">
+                    <button onclick="copyEmail()" aria-label="Copy Email">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </span>
+                <a href="https://www.linkedin.com/in/cordero-kelsey/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Kelsey-2024" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Kelsey Cordero. All rights reserved.</p>
+        </footer>
+
+        <audio id="click-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_92416b48cc.mp3"></audio>
+        
+        <script>
+            function scrollToSection(id) {
+                document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+                playClick();
+            }
+
+            function playClick() {
+                const clickSound = document.getElementById('click-sound');
+                if (clickSound) {
+                    clickSound.currentTime = 0;
+                    clickSound.play().catch(err => console.log("Audio play failed:", err));
+                }
+            }
+
+            function toggleTheme() {
+                const html = document.documentElement;
+                const themeIcon = document.getElementById('theme-icon');
+                const isDark = html.getAttribute('data-theme') === 'dark';
+                
+                if (isDark) {
+                    html.removeAttribute('data-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    html.setAttribute('data-theme', 'dark');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+                playClick();
+            }
+
+            window.addEventListener('DOMContentLoaded', () => {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                const themeIcon = document.getElementById('theme-icon');
+                if (themeIcon) {
+                    themeIcon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
+                }
+            })
+
+            function openModal(id) {
+                const modal = document.getElementById(id);
+                modal.style.display = 'flex';
+                const content = modal.querySelector('.modal-content');
+                content.style.animation = 'none';
+                content.offsetHeight;
+                content.style.animation = null;
+                playClick();
+            }
+
+            function closeModal(event, id) {
+                if (event.target.classList.contains('modal') || event.target.classList.contains('close-btn')) {
+                    document.getElementById(id).style.display = 'none';
+                    playClick();
+                }
+            }
+
+            function copyEmail() {
+                const email = "corderokelsey07@gmail.com";
+                navigator.clipboard.writeText(email).then(() => {
+                    const btn = document.getElementById("copy-btn");
+                    btn.setAttribute("data-tooltip", "Copied!");
+                    setTimeout(() => btn.setAttribute("data-tooltip", "Copy Email"), 1500);
+                });
+            }
+        </script>
+    </body>
+</html>

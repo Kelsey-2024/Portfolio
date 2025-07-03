@@ -1,36 +1,59 @@
-#Personal-Website-II
+# Personal Portfolio
+
+## Overview
+
+Welcome to version 2 of my personal website - built from scratch to reflect both my technical growth and personal style. After completing my software engineering bootcamp, I wanted to create a single-page application (SPA) that was minimal, responsive, and designed without frameworks like Tailwind or Bootstrap - just clean HTML, CSS, and JavaScript.
+
+📍 ** Live Site:** Coming soon
 
 
-##Description
-  2.29.24 Happy Leap Year - This is part two of my personal website, the objective here is to add as many HTML files as I want. One of those files should be a contact page that submits success once all of the fields are filled and submitted. I wasn't happy with my last personal website so I created a new one from scratch. 
-  Check out my last personal website to see my growth! https://github.com/Kelsey-2024/personal_site
+---
 
-  6.24.24 - I decided to make some major changes to this Personal Site --post graduation. 
-    - First and foremost, I removed several files since I decided to go with a single page application (I've been quite obsessed with SPAs lately). 
-    - Next, under "contact" I added a tag that allows recruiters and visitors to contact me via email instead of having to fill out a form - bye bye success message. Perhaps in the near future I will add a "message me" section under the contact me page to make it fun and less serious. 
-    - The main thing I wanted to touch up on was my styling skills, so I decided not to use a package such as tailwind/bootstrap.
+## Features
 
-Here are some links that helped me format my site:
-  https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-  https://www.w3schools.com/cssref/css_units.php
-  https://www.w3schools.com/cssref/css_selectors.php#gsc.tab=0
-  https://fonts.google.com/selection/embed
+- Custom dark/light theme toggle with icon animation
+- Clean SPA layout with direct email link
+- Responsive design without external CSS libraries
+- Modal components for project previews
 
-Here are some fun facts about me!
- - Skateboarding
-  From the moment I first stepped foot on a board, I felt an exhilarating rush unlike anything else.
-  With each heelflip and ollie, I soared through the streets, my spirit was unbound by the constraints
-  of gravity. Skateboarding is a source of freedom, expression and empowerment. I tell myself, if I can
-  skateboard, then I can do anything I set my mind to! 
- - Snowboarding
-  Newbie snowboarder here, started two years ago because my skateboarding friends insisted that I would
-  be good. As I mentioned above, nothing is an obstacle because I skateboard. My friends were right, I am
-  really good and I truly enjoy this sport. I want to dedicate this section to them because they're constantly
-  pushing me to try new things. I'm not sure where I would be if it weren't for them.
-- Gardening
-  My father was born in Cabo Rojo, Puerto Rico. The area he lived in was also known as 'El Campo', which is
-  another way to say that he lived in the country-side. His days consisted of farm work, which was mechanically and physically taxing, but he loved every aspect of it -- growing produce and tinkering with machinery. My father taught me how to grow and nurture all types of plants, as well as build my own garden. Thank you Dad, you will continue to live in my heart and through the plants I grow!
+---
 
-### License
+## Project Timeline
 
-n/a
+### February 29, 2024 - Initial Concept
+I wasn't satisfied with my original site, so I started fresh. The initial goal was to create multiple HTML pages with individual routes, including a working contact form.
+
+### June 24, 2024 - Major Refactor
+Post-graduation, I converted the site into a single-page application to streamline navigation and content. The contact form was replaced with a simple email link to encourage direct communication.
+
+---
+
+## Resources & References
+
+Here are some references that helped along the way:
+
+- [CSS Tricks: Flexbox Guide] (https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [W3Schools CSS Units] (https://www.w3schools.com/cssref/css_units.php)
+- [W3Schools CSS Selectors] (https://www.w3schools.com/cssref/css_selectors.php#gsc.tab=0)
+- [Google Fonts] (https://fonts.google.com/selection/embed)
+
+---
+
+## About Me
+
+Aside from coding, I enjoy:
+
+- 🛹 **Skateboarding:** A source of freedom and empowerment - I believe if I can land a heelflip, then I can tackle anything.
+- 🏂 **Snowboarding:** Started four years ago - big thanks to my friends who constantly push me past my comfort zone!
+- 🌱 **Gardening:** Inspired by my father who grew up on farm land in Cabo Rojo, Puerto Rico. He taught me how to grow food and care for plants. I carry his legacy in every plant I nurture.
+
+## License 
+
+This project is open-source and free to use or modify. Have fun!
+
+## Author
+
+**Kelsey Cordero**
+
+📫 corderokelsey07@gmail.com
+🔗 [LinkedIn] (https://www.linkedin.com/in/cordero-kelsey/) | [Github] (https://github.com/Kelsey-2024)
